@@ -8,7 +8,6 @@ require ('rubygems')
 require ('parseconfig')
 require ('active_record')
 require ('active_support')
- 
 require 'db_conn.rb'
 
 ActiveRecord::Base.establish_connection(
@@ -30,7 +29,7 @@ end
 puts 'Listing List ID'
 
 Vicidial_lists.all().each do |lists| 
-  puts lists.list_id
+  puts "List ID: #{lists.list_id}\n"
 end
 
 
