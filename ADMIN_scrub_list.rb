@@ -38,13 +38,13 @@ class Vicidial_dnc2 < ActiveRecord::Base
 end
 
 #iterate through selected lists
-Vicidial_list.all(:conditions => "list_id = '#{list_id}'").each do |list|
+Vicidial_list.all(:conditions => "list_id == '#{list_id}'").each do |list|
   
-  puts "Checking #{list.phone_number}..."
+  puts "Checking #{list.phone_number} ..."
   
   #check is record exist on dnc and dnc2 table
-  Vicidial_dnc2.all(:all, :conditions => "phone_number = '#{list.phone_number}'").each do |list| 
-    puts "#{list.phone_number} DNC matches!..."
+  Vicidial_dnc2.all(:conditions => "phone_number = '#{list.phone_number}'").each do |list| 
+    puts "#{list.phone_number} DNC matches!"
   end
      
   
